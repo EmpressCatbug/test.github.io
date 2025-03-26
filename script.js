@@ -1,42 +1,67 @@
+// Activate Particle.js for star background
 particlesJS('particles-js', {
     particles: {
       number: {
-        value: 160,
-        density: { enable: true, value_area: 800 }
+        value: 120,
+        density: {
+          enable: true,
+          value_area: 800
+        }
       },
-      color: { value: "#ffffff" },
+      color: {
+        value: "#ffffff"
+      },
       shape: {
-        type: "circle",
-        stroke: { width: 0, color: "#000000" }
+        type: "circle"
       },
       opacity: {
         value: 0.5,
-        random: true,
-        anim: { enable: true, speed: 1, opacity_min: 0.1, sync: false }
+        random: true
       },
       size: {
-        value: 3,
-        random: true,
-        anim: { enable: false }
+        value: 2,
+        random: true
       },
       move: {
         enable: true,
-        speed: 0.6,
+        speed: 0.3,
         direction: "none",
         out_mode: "out"
       }
     },
     interactivity: {
-      detect_on: "canvas",
       events: {
-        onhover: { enable: true, mode: "repulse" },
-        onclick: { enable: true, mode: "push" }
+        onhover: {
+          enable: true,
+          mode: "repulse"
+        },
+        onclick: {
+          enable: true,
+          mode: "push"
+        }
       },
       modes: {
-        repulse: { distance: 100, duration: 0.4 },
-        push: { particles_nb: 4 }
+        repulse: {
+          distance: 100,
+          duration: 0.4
+        },
+        push: {
+          particles_nb: 4
+        }
       }
     },
     retina_detect: true
+  });
+  
+  // Smooth scrolling for nav links (optional enhancement)
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener("click", function (e) {
+      e.preventDefault();
+      const target = document.querySelector(this.getAttribute("href"));
+      target.scrollIntoView({
+        behavior: "smooth",
+        block: "start"
+      });
+    });
   });
   

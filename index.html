@@ -6,10 +6,7 @@
   <title>Takeria Thompson | Portfolio</title>
 
   <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron&display=swap" rel="stylesheet">
-
-  <!-- Animate.css -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron&family=Inter:wght@400;700&display=swap" rel="stylesheet">
 
   <!-- AOS (Animate On Scroll) -->
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
@@ -17,58 +14,68 @@
   <!-- CSS -->
   <link rel="stylesheet" href="style.css" />
 
-  <!-- Particle.js -->
+  <!-- Particles -->
   <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
 </head>
 <body>
-
-  <!-- Galaxy Particles Background -->
+  <!-- Star Background -->
   <div id="particles-js"></div>
 
-  <!-- Header -->
-  <header class="animate__animated animate__fadeInDown">
-    <h1>Hi, I’m Takeria 👋</h1>
-    <p>Software Engineer | UI/UX Designer | Galaxy Dreamer</p>
-  </header>
+  <!-- Hero Section -->
+  <section class="hero" id="home">
+    <div class="container">
+      <h1 class="name" data-aos="fade-up">Takeria Thompson</h1>
+      <p class="subtitle" data-aos="fade-up" data-aos-delay="200">
+        Software Engineer • UI/UX Designer • Dreamer of Stars 🌌
+      </p>
+      <a href="#projects" class="cta-btn" data-aos="fade-up" data-aos-delay="400">Explore My Work</a>
+    </div>
+  </section>
 
-  <!-- Navigation -->
-  <nav>
-    <a href="#projects">Projects</a>
-    <a href="#about">About</a>
-    <a href="#contact">Contact</a>
-  </nav>
+  <!-- Projects Section -->
+  <section id="projects" class="section" data-aos="fade-in">
+    <h2>Projects</h2>
+    <div class="projects-grid">
+      <div class="project-card" data-aos="zoom-in">
+        <h3>Smart Thermostat</h3>
+        <p>Embedded system for room temperature control with UART + I2C.</p>
+      </div>
+      <div class="project-card" data-aos="zoom-in" data-aos-delay="100">
+        <h3>Pirate Maze AI</h3>
+        <p>TensorFlow & Keras-based AI navigating a procedural maze.</p>
+      </div>
+      <div class="project-card" data-aos="zoom-in" data-aos-delay="200">
+        <h3>News Summarizer</h3>
+        <p>Dockerized FastAPI app that crawls and summarizes news articles.</p>
+      </div>
+    </div>
+  </section>
 
-  <!-- Main Content -->
-  <main>
-    <section id="projects" data-aos="fade-up">
-      <h2>✨ Projects</h2>
-      <p>Check out my work below!</p>
-      <!-- Add project cards or links here -->
-    </section>
+  <!-- About Section -->
+  <section id="about" class="section" data-aos="fade-up">
+    <h2>About Me</h2>
+    <p>
+      I’m a passionate software engineer with a love for design, animation, and the cosmos.
+      From embedded systems to web apps, I create experiences that feel alive ✨.
+    </p>
+  </section>
 
-    <section id="about" data-aos="fade-right">
-      <h2>🪐 About Me</h2>
-      <p>I’m passionate about building cool things with code, creating beautiful designs, and exploring the cosmos 🌌</p>
-    </section>
-
-    <section id="contact" data-aos="fade-left">
-      <h2>📬 Contact</h2>
-      <p>Email: takeria@example.com</p>
-      <p>LinkedIn: <a href="https://www.linkedin.com/in/takeriathompson" target="_blank">takeriathompson</a></p>
-      <p>GitHub: <a href="https://github.com/EmpressCatbug" target="_blank">EmpressCatbug</a></p>
-    </section>
-  </main>
+  <!-- Contact Section -->
+  <section id="contact" class="section" data-aos="fade-up">
+    <h2>Contact</h2>
+    <p>Email: <a href="mailto:takeria@example.com">takeria@example.com</a></p>
+    <p>LinkedIn: <a href="https://linkedin.com/in/takeriathompson" target="_blank">linkedin.com/in/takeriathompson</a></p>
+    <p>GitHub: <a href="https://github.com/EmpressCatbug" target="_blank">github.com/EmpressCatbug</a></p>
+  </section>
 
   <!-- Footer -->
   <footer>
-    <p>&copy; 2025 Takeria Thompson. All Rights Reserved.</p>
+    <p>&copy; 2025 Takeria Thompson. Crafted with stardust 🚀</p>
   </footer>
 
-  <!-- AOS Animation -->
+  <!-- Scripts -->
+  <script src="script.js"></script>
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <script>AOS.init();</script>
-
-  <!-- Custom Script -->
-  <script src="script.js"></script>
 </body>
 </html>
