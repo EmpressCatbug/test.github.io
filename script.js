@@ -1,67 +1,53 @@
-// Activate Particle.js for star background
-particlesJS('particles-js', {
-    particles: {
-      number: {
-        value: 120,
-        density: {
-          enable: true,
-          value_area: 800
-        }
-      },
-      color: {
-        value: "#ffffff"
-      },
-      shape: {
-        type: "circle"
-      },
-      opacity: {
-        value: 0.5,
-        random: true
-      },
-      size: {
-        value: 2,
-        random: true
-      },
-      move: {
-        enable: true,
-        speed: 0.3,
-        direction: "none",
-        out_mode: "out"
-      }
-    },
-    interactivity: {
-      events: {
-        onhover: {
-          enable: true,
-          mode: "repulse"
-        },
-        onclick: {
-          enable: true,
-          mode: "push"
-        }
-      },
-      modes: {
-        repulse: {
-          distance: 100,
-          duration: 0.4
-        },
-        push: {
-          particles_nb: 4
-        }
-      }
-    },
-    retina_detect: true
+// ---------- Typing Animation ----------
+const roles = [
+    "Software Developer",
+    "UI/UX Designer",
+    "Full Stack Engineer",
+    "Star-gazer"
+  ];
+  
+  let roleIndex = 0;
+  let charIndex = 0;
+  const typingElement = document.getElementById("typing");
+  const cursor = document.querySelector(".cursor");
+  let typingSpeed = 100;
+  let pauseBetweenRoles = 1500;
+  
+  function type() {
+    if (charIndex < roles[roleIndex].length) {
+      typingElement.textContent += roles[roleIndex].charAt(charIndex);
+      charIndex++;
+      setTimeout(type, typingSpeed);
+    } else {
+      setTimeout(erase, pauseBetweenRoles);
+    }
+  }
+  
+  function erase() {
+    if (charIndex > 0) {
+      typingElement.textContent = roles[roleIndex].substring(0, charIndex - 1);
+      charIndex--;
+      setTimeout(erase, 60);
+    } else {
+      roleIndex = (roleIndex + 1) % roles.length;
+      setTimeout(type, 300);
+    }
+  }
+  
+  document.addEventListener("DOMContentLoaded", () => {
+    if (roles.length) setTimeout(type, 500);
   });
   
-  // Smooth scrolling for nav links (optional enhancement)
-  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener("click", function (e) {
-      e.preventDefault();
-      const target = document.querySelector(this.getAttribute("href"));
-      target.scrollIntoView({
-        behavior: "smooth",
-        block: "start"
-      });
-    });
+  // ---------- Sparkle Trail ----------
+  const sparkleContainer = document.getElementById("sparkle-container");
+  
+  document.addEventListener("mousemove", (e) => {
+    const sparkle = document.createElement("div");
+    sparkle.className = "sparkle";
+    sparkle.style.left = `${e.clientX}px`;
+    sparkle.style.top = `${e.clientY}px`;
+    sparkleContainer.appendChild(sparkle);
+  
+    setTimeout(() => sparkle.remove(), 500);
   });
   

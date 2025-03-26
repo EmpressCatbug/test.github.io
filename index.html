@@ -11,70 +11,68 @@
   <!-- AOS (Animate On Scroll) -->
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
-  <!-- CSS -->
+  <!-- Custom CSS -->
   <link rel="stylesheet" href="style.css" />
-
-  <!-- Particles -->
-  <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
 </head>
 <body>
-  <!-- Star Background -->
-  <div id="particles-js"></div>
+  <!-- Sparkle Effect -->
+  <div id="sparkle-container"></div>
+
+  <!-- Galaxy Background (can be gradient or animated particles later) -->
+  <div id="background"></div>
 
   <!-- Hero Section -->
-  <section class="hero" id="home">
-    <div class="container">
-      <h1 class="name" data-aos="fade-up">Takeria Thompson</h1>
-      <p class="subtitle" data-aos="fade-up" data-aos-delay="200">
-        Software Engineer • UI/UX Designer • Dreamer of Stars 🌌
-      </p>
-      <a href="#projects" class="cta-btn" data-aos="fade-up" data-aos-delay="400">Explore My Work</a>
-    </div>
+  <section class="hero">
+    <h1 class="glow">Takeria Thompson</h1>
+    <p class="typed-text"><span id="typing"></span><span class="cursor">|</span></p>
   </section>
 
-  <!-- Projects Section -->
-  <section id="projects" class="section" data-aos="fade-in">
+  <!-- Projects -->
+  <section class="section" id="projects">
     <h2>Projects</h2>
     <div class="projects-grid">
-      <div class="project-card" data-aos="zoom-in">
+      <div class="project-card">
         <h3>Smart Thermostat</h3>
         <p>Embedded system for room temperature control with UART + I2C.</p>
       </div>
-      <div class="project-card" data-aos="zoom-in" data-aos-delay="100">
+      <div class="project-card">
         <h3>Pirate Maze AI</h3>
-        <p>TensorFlow & Keras-based AI navigating a procedural maze.</p>
+        <p>AI with TensorFlow & Keras navigating a procedural maze.</p>
       </div>
-      <div class="project-card" data-aos="zoom-in" data-aos-delay="200">
+      <div class="project-card">
         <h3>News Summarizer</h3>
         <p>Dockerized FastAPI app that crawls and summarizes news articles.</p>
       </div>
     </div>
   </section>
 
-  <!-- About Section -->
-  <section id="about" class="section" data-aos="fade-up">
+  <!-- About -->
+  <section class="section" id="about">
     <h2>About Me</h2>
     <p>
-      I’m a passionate software engineer with a love for design, animation, and the cosmos.
-      From embedded systems to web apps, I create experiences that feel alive ✨.
+      I’m a creative software engineer who loves space, design, and turning cool ideas into code.
+      This galaxy is just the beginning. 🌠
     </p>
+    <!-- Avatar placeholder -->
+    <img src="website.avatar.jpg" alt="Takeria's Astronaut Avatar" id="avatar" />
   </section>
 
-  <!-- Contact Section -->
-  <section id="contact" class="section" data-aos="fade-up">
+  <!-- Contact -->
+  <section class="section" id="contact">
     <h2>Contact</h2>
     <p>Email: <a href="mailto:takeria@example.com">takeria@example.com</a></p>
-    <p>LinkedIn: <a href="https://linkedin.com/in/takeriathompson" target="_blank">linkedin.com/in/takeriathompson</a></p>
-    <p>GitHub: <a href="https://github.com/EmpressCatbug" target="_blank">github.com/EmpressCatbug</a></p>
+    <p>GitHub: <a href="https://github.com/EmpressCatbug" target="_blank">EmpressCatbug</a></p>
+    <p>LinkedIn: <a href="https://linkedin.com/in/takeriathompson" target="_blank">takeriathompson</a></p>
   </section>
 
   <!-- Footer -->
   <footer>
-    <p>&copy; 2025 Takeria Thompson. Crafted with stardust 🚀</p>
+    <p>&copy; 2025 Takeria Thompson | Crafted with stardust ✨</p>
   </footer>
 
   <!-- Scripts -->
   <script src="script.js"></script>
+  <script src="particles.js"></script>
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <script>AOS.init();</script>
 </body>
