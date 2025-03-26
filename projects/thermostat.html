@@ -5,12 +5,70 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Smart Thermostat Project | Takeria Thompson</title>
   <link href="https://fonts.googleapis.com/css2?family=Orbitron&family=Inter:wght@400;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="../style.css">
+  <link rel="stylesheet" href="../style.css" />
+  <style>
+    .project-page {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 60px 20px;
+    }
+
+    .project-page h1 {
+      font-size: 2.8rem;
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .project-page h2 {
+      font-size: 2rem;
+      margin-top: 50px;
+      margin-bottom: 10px;
+      color: #e9d5ff;
+    }
+
+    .project-page h3 {
+      margin-top: 30px;
+      font-size: 1.2rem;
+      color: #c084fc;
+    }
+
+    .project-page p {
+      font-size: 1.05rem;
+      line-height: 1.7;
+      margin-top: 10px;
+      color: #ddd;
+    }
+
+    .project-diagram {
+      display: block;
+      margin: 30px auto;
+      max-width: 100%;
+      border-radius: 12px;
+      box-shadow: 0 0 15px rgba(186, 127, 255, 0.3);
+    }
+
+    .video-container {
+      display: flex;
+      justify-content: center;
+      margin-top: 30px;
+    }
+
+    .back-link {
+      font-size: 0.95rem;
+      margin-bottom: 20px;
+      display: inline-block;
+      color: #c084fc;
+    }
+
+    .back-link:hover {
+      color: #fff;
+    }
+  </style>
 </head>
 <body>
-  <div class="section">
+  <div class="project-page">
     <h1 class="glow">Smart Thermostat Project</h1>
-    <p><a href="../index.html">← Back to Portfolio</a></p>
+    <a class="back-link" href="../index.html">← Back to Portfolio</a>
 
     <h2>Overview</h2>
     <p>
@@ -23,7 +81,7 @@
       The task scheduler ensures efficient handling of temperature sensing, user input, and UART data communication.
       Below is the visual representation of the scheduler:
     </p>
-    <img src="../image.png" alt="Task Scheduler Diagram" class="project-diagram" />
+    <img src="images/TaskScheduler.drawio.png" alt="Task Scheduler Diagram" class="project-diagram" />
 
     <h2>Source Code</h2>
     <p>
@@ -33,11 +91,15 @@
 
     <h2>Video Demonstration</h2>
     <p>
-      A demo video showcases the live functionality: temperature sensing, LED response, and button control.<br>
-      <a href="https://www.youtube.com/watch?v=YOUR_VIDEO_LINK" target="_blank">Watch the CS 350 Project 1 Demo</a>
+      A demo video showcases the live functionality: temperature sensing, LED response, and button control.
     </p>
+    <div class="video-container">
+      <iframe width="560" height="315" src="https://www.youtube.com/embed/pM9mzez48oQ" 
+        title="Smart Thermostat Demo" frameborder="0" allowfullscreen></iframe>
+    </div>
 
     <h2>Reflection</h2>
+
     <h3>A. What did you do particularly well?</h3>
     <p>I excelled in implementing I2C and UART communication and integrating them into a clean scheduler.</p>
 
