@@ -73,9 +73,24 @@
 
     <h2>Overview</h2>
     <p>
-      This smart thermostat prototype was built for my CS 350 course to explore embedded systems
-      using the TI CC3220x LaunchPad. It reads room temperature, controls a heating system, and simulates data transmission.
+      This project demonstrates a smart thermostat system built on the Texas Instruments CC3220x LaunchPad, a microcontroller commonly used in embedded systems. 
+      Embedded systems are small, dedicated computers integrated into larger devices — like thermostats, medical devices, or even space probes — where they control specific functions in real-time.
     </p>
+    
+    <p>
+      The thermostat monitors ambient temperature, allows user input via physical buttons, and controls an LED to simulate a heating element's status. It also mimics data reporting to a server, just like how smart home devices share data with a mobile app or cloud platform.
+    </p>
+    
+    <p>
+      Several hardware communication protocols were used to bring this system together:
+      <strong>I2C (Inter-Integrated Circuit)</strong> was used to communicate with a digital temperature sensor — think of it like a short-range conversation between two components on the same circuit board.
+      <strong>UART (Universal Asynchronous Receiver/Transmitter)</strong> enabled data to be sent to a virtual server, similar to how your computer communicates with a USB device.
+      <strong>GPIO (General Purpose Input/Output)</strong> was used to detect when buttons were pressed by the user.
+    </p>
+    
+    <p>
+      Together, these elements form a responsive, modular system that could serve as the foundation for more advanced smart home technologies. This project emphasizes clean architecture, hardware integration, and real-time feedback — core principles in embedded software engineering.
+    </p>    
 
     <h2>Task Scheduler</h2>
     <p>
