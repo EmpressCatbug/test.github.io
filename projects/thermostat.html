@@ -93,11 +93,42 @@
     </p>    
 
     <h2>Task Scheduler</h2>
-    <p>
-      The task scheduler ensures efficient handling of temperature sensing, user input, and UART data communication.
-      Below is the visual representation of the scheduler:
-    </p>
-    <img src="images/TaskScheduler.drawio.png" alt="Task Scheduler Diagram" class="project-diagram" />
+<p>
+  At the heart of the smart thermostat system is a task scheduler — a logical structure that determines the order and timing of each system action.
+  In embedded systems like this one, we can’t rely on large operating systems to manage tasks in the background, so we build our own simple scheduler
+  to make sure each component runs in the right order, at the right time.
+</p>
+
+<p>
+  The diagram below illustrates the main control flow of the thermostat:
+</p>
+
+<img src="images/TaskScheduler.drawio.png" alt="Task Scheduler Diagram" class="project-diagram" />
+
+<p>
+  The cycle begins with <strong>System Initialization</strong>, where hardware peripherals like sensors, timers, and communication interfaces are configured.
+  Once the system is ready, it proceeds to <strong>Read Temperature via I2C</strong>, which retrieves real-time temperature data from a digital sensor.
+</p>
+
+<p>
+  Next, the program checks for user input in <strong>Check Button States via GPIO</strong>. These physical buttons allow users to raise or lower the target temperature.
+  The <strong>Control LED</strong> step compares the current room temperature with the setpoint and updates the LED status accordingly — for example, turning the light on if the room is too cold.
+</p>
+
+<p>
+  After that, the system enters the <strong>Send Data via UART</strong> stage. Here, simulated data is packaged and sent out as if reporting to a remote server.
+  This step mimics how smart devices communicate with cloud platforms or mobile apps in real-world IoT systems.
+</p>
+
+<p>
+  Finally, a <strong>Timer Event Trigger</strong> introduces a short delay or interval before the scheduler reaches the <strong>End of Cycle</strong>, where it loops back and starts again.
+  This continuous loop ensures the system stays responsive and up to date, monitoring and reacting to new temperature readings and user actions in real time.
+</p>
+
+<p>
+  This modular, loop-based approach is a common practice in embedded systems, and designing it from scratch helped reinforce core concepts like system timing, I/O coordination, and real-time responsiveness.
+</p>
+
 
     <h2>Source Code</h2>
     <p>
