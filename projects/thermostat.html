@@ -130,47 +130,132 @@
 </p>
 
 
-    <h2>Source Code</h2>
-    <p>
-      The code includes I2C temperature sensing, GPIO for button inputs, and UART communication.
-      It’s modular, documented, and designed for future adaptability.
-    </p>
+<h2>Source Code & Architecture</h2>
 
-    <h2>Video Demonstration</h2>
-    <p>
-      A demo video showcases the live functionality: temperature sensing, LED response, and button control.
-    </p>
-    <div class="video-container">
-      <iframe width="560" height="315" src="https://www.youtube.com/embed/pM9mzez48oQ" 
-        title="Smart Thermostat Demo" frameborder="0" allowfullscreen></iframe>
-    </div>
+<p>
+  The smart thermostat was developed using <strong>Texas Instruments’ Code Composer Studio</strong> and programmed for the TI CC3220x LaunchPad — a powerful microcontroller designed for connected embedded applications.
+  The firmware implements real-time temperature monitoring, user input handling, LED status control, and UART communication using onboard peripherals and drivers from TI’s Software Development Kit (SDK).
+</p>
 
-    <h2>Reflection</h2>
+<h3>Embedded Communication Interfaces</h3>
+<p>
+  <strong>I2C</strong> (Inter-Integrated Circuit) was used to retrieve live temperature data from a TMP006 digital sensor.<br>
+  <strong>GPIO</strong> (General Purpose Input/Output) was used to detect button presses and to control an LED that reflects the system’s heating status.<br>
+  <strong>UART</strong> (Universal Asynchronous Receiver/Transmitter) was used to simulate data transmission to a remote server, mirroring how real-world IoT devices report to cloud platforms.
+</p>
 
-    <h3>A. What did you do particularly well?</h3>
-    <p>I excelled in implementing I2C and UART communication and integrating them into a clean scheduler.</p>
+<h3>Platform Evaluation</h3>
+<p>
+  I conducted a technical comparison of three microcontroller platforms — <strong>TI</strong>, <strong>Microchip</strong>, and <strong>Freescale (NXP)</strong> — to evaluate peripheral support, memory capacity, Wi-Fi integration, and development ecosystem.
+</p>
+<ul>
+  <li><strong>TI CC3220x:</strong> Most integrated platform with built-in Wi-Fi, robust security features, and excellent documentation and tooling.</li>
+  <li><strong>Microchip:</strong> Strong performance and support across multiple families, but requires more effort to configure and integrate Wi-Fi solutions.</li>
+  <li><strong>Freescale (NXP):</strong> Powerful architecture, but lacks built-in wireless support, leading to added hardware and software complexity.</li>
+</ul>
 
-    <h3>B. Where could you improve?</h3>
-    <p>The task scheduler can be optimized for performance, and error handling can be improved for robustness.</p>
+<h3>Wi-Fi & Cloud Integration</h3>
+<p>
+  The CC3220x includes built-in Wi-Fi (802.11 b/g/n) and secure socket support, making it ideal for cloud-based communication. It also includes hardware-based encryption and a secure boot process — critical features for any real-world IoT solution.
+</p>
 
-    <h3>C. What tools and resources did you add to your support network?</h3>
-    <p>TI’s Code Composer Studio, draw.io, and TI’s developer forums were instrumental in debugging and design.</p>
+<h3>Memory & Expandability</h3>
+<p>
+  The TI platform offers 1MB of Flash and 256KB of SRAM, which provides ample room for modular code, expansion, and future feature additions such as mobile app connectivity or external sensor integration. These specifications exceed the minimum requirements and allow for scalability.
+</p>
 
-    <h3>D. Transferable Skills</h3>
-    <p>
-      Embedded interface programming (I2C, GPIO, UART), hardware debugging, modular coding — all very applicable to future projects.
-    </p>
+<h3>Code Sample</h3>
+<p>Below is a snippet from the system’s main file, which initializes the board, starts the lightweight TI NoRTOS scheduler, and launches the main application thread:</p>
 
-    <h3>E. Maintainability & Adaptability</h3>
-    <p>
-      My code structure uses clear naming, modular functions, and in-line documentation, which makes adding new sensors or features easy.
-    </p>
+<pre><code>
+int main(void)
+{
+    Board_init();           // Initialize board peripherals and drivers
 
-    <h2>Conclusion</h2>
-    <p>
-      This project solidified my understanding of embedded hardware, communication protocols, and system architecture.
-      It’s an experience I’ll carry into every future engineering challenge.
-    </p>
+    /* Start NoRTOS (TI’s lightweight real-time OS) */
+    NoRTOS_start();
+
+    /* Launch main thread where application logic runs */
+    mainThread(NULL);
+
+    while (1) {}
+}
+</code></pre>
+
+<h3>View the Full Source</h3>
+<p>
+  The complete implementation, including task scheduler logic, I2C sensor integration, UART communication routines, and project documentation, is available here:<br>
+  <a href="https://github.com/EmpressCatbug/CS350Final" target="_blank">🔗 View Code on GitHub</a>
+</p>
+
+
+<h2>Reflection</h2>
+
+<h3>A. Key Accomplishments</h3>
+<p>
+  One of the project’s standout achievements was the successful integration of multiple hardware communication protocols — I2C, UART, and GPIO —
+  into a unified, responsive system. I effectively implemented a task-driven architecture that ensured real-time feedback from the
+  temperature sensor, immediate LED status updates, and seamless user interaction through physical buttons.
+  Additionally, simulating cloud communication via UART demonstrated a working prototype that could easily transition into a connected IoT device.
+</p>
+
+<h3>B. Areas for Improvement</h3>
+<p>
+  While the system operated reliably under normal conditions, I identified opportunities to further optimize the task scheduler for speed and responsiveness.
+  The system could benefit from interrupt-based scheduling for certain tasks rather than a looped polling model. Additionally, adding advanced error handling for
+  UART and sensor read failures would improve system robustness, especially in edge cases or production scenarios.
+</p>
+
+<h3>C. Tools & Support Network</h3>
+<p>
+  To support development, I utilized <strong>TI Code Composer Studio</strong> for coding and debugging, along with draw.io for planning
+  system state diagrams and task flow. I also referenced TI’s developer forums, official documentation, and GitHub repositories from the embedded systems community
+  to troubleshoot hardware communication and system timing behavior. These resources not only helped solve project-specific issues,
+  but also expanded my embedded systems knowledge base for future projects.
+</p>
+
+<h3>D. Transferable Skills</h3>
+<p>
+  This project strengthened a variety of technical and problem-solving skills that are highly transferable to both embedded and general software engineering roles:
+</p>
+<ul>
+  <li>Peripheral communication (I2C, UART, GPIO)</li>
+  <li>Real-time system design and task scheduling</li>
+  <li>Hardware/software integration and debugging</li>
+  <li>Documentation and code modularity</li>
+</ul>
+<p>
+  Beyond the technical aspects, the iterative problem-solving and hands-on implementation process helped reinforce agile thinking,
+  adaptability, and communication — all essential skills for professional development and team collaboration.
+</p>
+
+<h3>E. Maintainability & Scalability</h3>
+<p>
+  The codebase was written with long-term usability in mind. By modularizing core functions and following consistent naming and commenting practices,
+  I ensured that new developers or collaborators could easily understand and extend the system. The design supports scalability;
+  additional sensors, controls, or outputs could be added with minimal structural changes, making this a strong foundation for future smart home applications.
+</p>
+
+
+<h2>Conclusion</h2>
+<p>
+  This project provided a comprehensive, hands-on opportunity to design and implement a real-world embedded system from the ground up.
+  Through the integration of multiple communication protocols, responsive user controls, and simulated server communication,
+  I successfully created a functional prototype that mirrors the behavior of a commercial smart thermostat.
+</p>
+
+<p>
+  Beyond just achieving technical functionality, the experience deepened my understanding of how software interacts with hardware in a live environment.
+  I gained insight into system design considerations such as timing, modularity, and error handling — all of which are crucial for building
+  reliable and scalable embedded applications.
+</p>
+
+<p>
+  This smart thermostat project represents more than a school assignment; it’s a practical demonstration of my ability to design,
+  build, and document embedded solutions that can evolve into real-world products. The knowledge and skills developed during this process
+  directly contribute to my growth as a software engineer and will continue to inform how I approach future hardware-integrated and IoT-based systems.
+</p>
+
   </div>
   <script src="../script.js"></script>
 </body>
