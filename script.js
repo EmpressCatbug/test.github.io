@@ -55,6 +55,8 @@ const roles = [
     const butterfly = document.querySelector(".butterfly-cursor");
   
     document.addEventListener("mousemove", (e) => {
+    const offsetX = -30; // Centers butterfly horizontally
+    const offsetY = -30; // Centers butterfly vertically
       butterfly.style.transform = `translate(${e.clientX}px, ${e.clientY}px)`;
     });
   });

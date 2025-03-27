@@ -174,7 +174,7 @@
     background-repeat: no-repeat;
     pointer-events: none;
     z-index: 9999;
-    animation: flutter 0.4s infinite ease-in-out;
+    animation: flutter 0.05s ease-out;
   }
   
   @keyframes flutter {
