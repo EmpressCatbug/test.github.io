@@ -51,3 +51,11 @@ const roles = [
     setTimeout(() => sparkle.remove(), 500);
   });
   
+  document.addEventListener("DOMContentLoaded", () => {
+    const butterfly = document.querySelector(".butterfly-cursor");
+  
+    document.addEventListener("mousemove", (e) => {
+      butterfly.style.transform = `translate(${e.clientX}px, ${e.clientY}px)`;
+    });
+  });
+  

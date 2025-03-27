@@ -163,6 +163,26 @@
     }
   }
   
+  .butterfly-cursor {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 60px;
+    height: 60px;
+    background-image: url('assets/cursor/butterfly.gif');
+    background-size: contain;
+    background-repeat: no-repeat;
+    pointer-events: none;
+    z-index: 9999;
+    animation: flutter 0.4s infinite ease-in-out;
+  }
+  
+  @keyframes flutter {
+    0% { transform: translateY(0px) rotate(0deg); }
+    50% { transform: translateY(-4px) rotate(2deg); }
+    100% { transform: translateY(0px) rotate(0deg); }
+  }
+  
   /* Sparkle Effect */
   #sparkle-container {
     position: fixed;
