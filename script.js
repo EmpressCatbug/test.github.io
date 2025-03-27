@@ -38,21 +38,23 @@ const roles = [
     if (roles.length) setTimeout(type, 500);
   
     const butterfly = document.querySelector(".butterfly-cursor");
+    const sparkleContainer = document.getElementById("sparkle-container");
   
     document.addEventListener("mousemove", (e) => {
-      const offsetX = -30;
+      const offsetX = -30; // Adjust to center butterfly
       const offsetY = -30;
-      const x = e.clientX + offsetX;
-      const y = e.clientY + offsetY;
   
-      // Move butterfly
-      butterfly.style.transform = `translate(${x}px, ${y}px)`;
+      const butterflyX = e.clientX + offsetX;
+      const butterflyY = e.clientY + offsetY;
   
-      // Add sparkle at butterfly position
+      // Move butterfly to cursor position
+      butterfly.style.transform = `translate(${butterflyX}px, ${butterflyY}px)`;
+  
+      // Create sparkle at butterfly's center
       const sparkle = document.createElement("div");
       sparkle.className = "sparkle";
-      sparkle.style.left = `${x + 25}px`; // adjust slightly behind the wings
-      sparkle.style.top = `${y + 25}px`;
+      sparkle.style.left = `${butterflyX + 25}px`; // trail from near center of gif
+      sparkle.style.top = `${butterflyY + 25}px`;
       sparkleContainer.appendChild(sparkle);
   
       setTimeout(() => sparkle.remove(), 500);
