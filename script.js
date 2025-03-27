@@ -36,28 +36,26 @@ const roles = [
   
   document.addEventListener("DOMContentLoaded", () => {
     if (roles.length) setTimeout(type, 500);
-  });
   
-  // ---------- Sparkle Trail ----------
-  const sparkleContainer = document.getElementById("sparkle-container");
-  
-  document.addEventListener("mousemove", (e) => {
-    const sparkle = document.createElement("div");
-    sparkle.className = "sparkle";
-    sparkle.style.left = `${e.clientX}px`;
-    sparkle.style.top = `${e.clientY}px`;
-    sparkleContainer.appendChild(sparkle);
-  
-    setTimeout(() => sparkle.remove(), 500);
-  });
-  
-  document.addEventListener("DOMContentLoaded", () => {
     const butterfly = document.querySelector(".butterfly-cursor");
   
     document.addEventListener("mousemove", (e) => {
-    const offsetX = -30; // Centers butterfly horizontally
-    const offsetY = -30; // Centers butterfly vertically
-      butterfly.style.transform = `translate(${e.clientX}px, ${e.clientY}px)`;
+      const offsetX = -30;
+      const offsetY = -30;
+      const x = e.clientX + offsetX;
+      const y = e.clientY + offsetY;
+  
+      // Move butterfly
+      butterfly.style.transform = `translate(${x}px, ${y}px)`;
+  
+      // Add sparkle at butterfly position
+      const sparkle = document.createElement("div");
+      sparkle.className = "sparkle";
+      sparkle.style.left = `${x + 25}px`; // adjust slightly behind the wings
+      sparkle.style.top = `${y + 25}px`;
+      sparkleContainer.appendChild(sparkle);
+  
+      setTimeout(() => sparkle.remove(), 500);
     });
   });
   
